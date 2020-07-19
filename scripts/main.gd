@@ -133,6 +133,3 @@ func _get_tiles():
 			tiles.append(t)
 	return tiles
 
-# testing tools
-func _on_TextureButton_button_down():
-	pass
