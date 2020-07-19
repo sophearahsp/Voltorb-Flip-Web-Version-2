@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/149 Game Corner.wav-e7c9d7dfaa63e9e0e6e79c883bbcb14f.sample"
+
+[deps]
+
+source_file="res://assets/music and sounds/149 Game Corner.wav"
+dest_files=[ "res://.import/149 Game Corner.wav-e7c9d7dfaa63e9e0e6e79c883bbcb14f.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

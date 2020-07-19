@@ -1,0 +1,305 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://scenes/display_tile.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/Tile.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/1x/BEndx1.png" type="Texture" id=3]
+[ext_resource path="res://assets/1x/PEndx1.png" type="Texture" id=4]
+[ext_resource path="res://assets/1x/GEndx1.png" type="Texture" id=5]
+[ext_resource path="res://assets/1x/OEndx1.png" type="Texture" id=6]
+
+[node name="GameBoard" type="GridContainer"]
+margin_right = 950.0
+margin_bottom = 960.0
+columns = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="11" parent="." groups=[
+"red_col",
+"red_row",
+] instance=ExtResource( 2 )]
+
+[node name="12" parent="." groups=[
+"green_col",
+"red_row",
+] instance=ExtResource( 2 )]
+margin_left = 159.0
+margin_right = 314.0
+
+[node name="13" parent="." groups=[
+"orange_col",
+"red_row",
+] instance=ExtResource( 2 )]
+margin_left = 318.0
+margin_right = 473.0
+
+[node name="14" parent="." groups=[
+"blue_col",
+"red_row",
+] instance=ExtResource( 2 )]
+margin_left = 477.0
+margin_right = 632.0
+
+[node name="15" parent="." groups=[
+"purple_col",
+"red_row",
+] instance=ExtResource( 2 )]
+margin_left = 636.0
+margin_right = 791.0
+
+[node name="R1" parent="." groups=[
+"line_display",
+] instance=ExtResource( 1 )]
+margin_left = 795.0
+margin_right = 950.0
+
+[node name="21" parent="." groups=[
+"green_row",
+"red_col",
+] instance=ExtResource( 2 )]
+margin_top = 159.0
+margin_bottom = 314.0
+
+[node name="22" parent="." groups=[
+"green_col",
+"green_row",
+] instance=ExtResource( 2 )]
+margin_left = 159.0
+margin_top = 159.0
+margin_right = 314.0
+margin_bottom = 314.0
+
+[node name="23" parent="." groups=[
+"green_row",
+"orange_col",
+] instance=ExtResource( 2 )]
+margin_left = 318.0
+margin_top = 159.0
+margin_right = 473.0
+margin_bottom = 314.0
+
+[node name="24" parent="." groups=[
+"blue_col",
+"green_row",
+] instance=ExtResource( 2 )]
+margin_left = 477.0
+margin_top = 159.0
+margin_right = 632.0
+margin_bottom = 314.0
+
+[node name="25" parent="." groups=[
+"green_row",
+"purple_col",
+] instance=ExtResource( 2 )]
+margin_left = 636.0
+margin_top = 159.0
+margin_right = 791.0
+margin_bottom = 314.0
+
+[node name="R2" parent="." groups=[
+"line_display",
+] instance=ExtResource( 1 )]
+margin_left = 795.0
+margin_top = 159.0
+margin_right = 950.0
+margin_bottom = 314.0
+texture = ExtResource( 5 )
+
+[node name="31" parent="." groups=[
+"orange_row",
+"red_col",
+] instance=ExtResource( 2 )]
+margin_top = 318.0
+margin_bottom = 473.0
+
+[node name="32" parent="." groups=[
+"green_col",
+"orange_row",
+] instance=ExtResource( 2 )]
+margin_left = 159.0
+margin_top = 318.0
+margin_right = 314.0
+margin_bottom = 473.0
+
+[node name="33" parent="." groups=[
+"orange_col",
+"orange_row",
+] instance=ExtResource( 2 )]
+margin_left = 318.0
+margin_top = 318.0
+margin_right = 473.0
+margin_bottom = 473.0
+
+[node name="34" parent="." groups=[
+"blue_col",
+"orange_row",
+] instance=ExtResource( 2 )]
+margin_left = 477.0
+margin_top = 318.0
+margin_right = 632.0
+margin_bottom = 473.0
+
+[node name="35" parent="." groups=[
+"orange_row",
+"purple_col",
+] instance=ExtResource( 2 )]
+margin_left = 636.0
+margin_top = 318.0
+margin_right = 791.0
+margin_bottom = 473.0
+
+[node name="R3" parent="." groups=[
+"line_display",
+] instance=ExtResource( 1 )]
+margin_left = 795.0
+margin_top = 318.0
+margin_right = 950.0
+margin_bottom = 473.0
+texture = ExtResource( 6 )
+
+[node name="41" parent="." groups=[
+"blue_row",
+"red_col",
+] instance=ExtResource( 2 )]
+margin_top = 477.0
+margin_bottom = 632.0
+
+[node name="42" parent="." groups=[
+"blue_row",
+"green_col",
+] instance=ExtResource( 2 )]
+margin_left = 159.0
+margin_top = 477.0
+margin_right = 314.0
+margin_bottom = 632.0
+
+[node name="43" parent="." groups=[
+"blue_row",
+"orange_col",
+] instance=ExtResource( 2 )]
+margin_left = 318.0
+margin_top = 477.0
+margin_right = 473.0
+margin_bottom = 632.0
+
+[node name="44" parent="." groups=[
+"blue_col",
+"blue_row",
+] instance=ExtResource( 2 )]
+margin_left = 477.0
+margin_top = 477.0
+margin_right = 632.0
+margin_bottom = 632.0
+
+[node name="45" parent="." groups=[
+"blue_row",
+"purple_col",
+] instance=ExtResource( 2 )]
+margin_left = 636.0
+margin_top = 477.0
+margin_right = 791.0
+margin_bottom = 632.0
+
+[node name="R4" parent="." groups=[
+"line_display",
+] instance=ExtResource( 1 )]
+margin_left = 795.0
+margin_top = 477.0
+margin_right = 950.0
+margin_bottom = 632.0
+texture = ExtResource( 3 )
+
+[node name="51" parent="." groups=[
+"purple_row",
+"red_col",
+] instance=ExtResource( 2 )]
+margin_top = 636.0
+margin_bottom = 791.0
+
+[node name="52" parent="." groups=[
+"green_col",
+"purple_row",
+] instance=ExtResource( 2 )]
+margin_left = 159.0
+margin_top = 636.0
+margin_right = 314.0
+margin_bottom = 791.0
+
+[node name="53" parent="." groups=[
+"orange_col",
+"purple_row",
+] instance=ExtResource( 2 )]
+margin_left = 318.0
+margin_top = 636.0
+margin_right = 473.0
+margin_bottom = 791.0
+
+[node name="54" parent="." groups=[
+"blue_col",
+"purple_row",
+] instance=ExtResource( 2 )]
+margin_left = 477.0
+margin_top = 636.0
+margin_right = 632.0
+margin_bottom = 791.0
+
+[node name="55" parent="." groups=[
+"purple_col",
+"purple_row",
+] instance=ExtResource( 2 )]
+margin_left = 636.0
+margin_top = 636.0
+margin_right = 791.0
+margin_bottom = 791.0
+
+[node name="R5" parent="." groups=[
+"line_display",
+] instance=ExtResource( 1 )]
+margin_left = 795.0
+margin_top = 636.0
+margin_right = 950.0
+margin_bottom = 791.0
+texture = ExtResource( 4 )
+
+[node name="C1" parent="." groups=[
+"line_display",
+] instance=ExtResource( 1 )]
+margin_top = 795.0
+margin_bottom = 950.0
+
+[node name="C2" parent="." groups=[
+"line_display",
+] instance=ExtResource( 1 )]
+margin_left = 159.0
+margin_top = 795.0
+margin_right = 314.0
+margin_bottom = 950.0
+texture = ExtResource( 5 )
+
+[node name="C3" parent="." groups=[
+"line_display",
+] instance=ExtResource( 1 )]
+margin_left = 318.0
+margin_top = 795.0
+margin_right = 473.0
+margin_bottom = 950.0
+texture = ExtResource( 6 )
+
+[node name="C4" parent="." groups=[
+"line_display",
+] instance=ExtResource( 1 )]
+margin_left = 477.0
+margin_top = 795.0
+margin_right = 632.0
+margin_bottom = 950.0
+texture = ExtResource( 3 )
+
+[node name="C5" parent="." groups=[
+"line_display",
+] instance=ExtResource( 1 )]
+margin_left = 636.0
+margin_top = 795.0
+margin_right = 791.0
+margin_bottom = 950.0
+texture = ExtResource( 4 )

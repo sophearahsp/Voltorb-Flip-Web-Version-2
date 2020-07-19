@@ -1,0 +1,84 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://scenes/Background.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/1x/SelectButtonInactivex1.png" type="Texture" id=3]
+[ext_resource path="res://assets/1x/MarkButtonInactivex1.png" type="Texture" id=4]
+[ext_resource path="res://scenes/scoreboard.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scripts/main.gd" type="Script" id=6]
+
+[sub_resource type="DynamicFontData" id=1]
+font_path = "res://assets/fonts/FFFFORWA.TTF"
+
+[sub_resource type="DynamicFont" id=2]
+size = 25
+font_data = SubResource( 1 )
+
+[node name="Main" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" parent="." instance=ExtResource( 2 )]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="HBoxContainer"]
+margin_bottom = 960.0
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer"]
+margin_left = 4.0
+margin_right = 330.0
+margin_bottom = 960.0
+rect_min_size = Vector2( 326, 960 )
+size_flags_horizontal = 3
+custom_constants/margin_top = 19
+
+[node name="PlayerControls" type="VBoxContainer" parent="HBoxContainer/MarginContainer"]
+margin_top = 19.0
+margin_right = 326.0
+margin_bottom = 960.0
+rect_min_size = Vector2( 326, 941 )
+
+[node name="Scoreboard" parent="HBoxContainer/MarginContainer/PlayerControls" instance=ExtResource( 5 )]
+
+[node name="ButtonBar" type="HBoxContainer" parent="HBoxContainer/MarginContainer/PlayerControls"]
+margin_top = 174.0
+margin_right = 326.0
+margin_bottom = 329.0
+rect_min_size = Vector2( 326, 155 )
+
+[node name="TextureButton" type="TextureButton" parent="HBoxContainer/MarginContainer/PlayerControls/ButtonBar"]
+margin_right = 161.0
+margin_bottom = 155.0
+size_flags_horizontal = 3
+texture_normal = ExtResource( 3 )
+expand = true
+stretch_mode = 3
+
+[node name="TextureButton2" type="TextureButton" parent="HBoxContainer/MarginContainer/PlayerControls/ButtonBar"]
+margin_left = 165.0
+margin_right = 326.0
+margin_bottom = 155.0
+size_flags_horizontal = 3
+texture_normal = ExtResource( 4 )
+expand = true
+stretch_mode = 3
+
+[node name="Label" type="Label" parent="HBoxContainer/MarginContainer/PlayerControls"]
+margin_top = 333.0
+margin_right = 326.0
+margin_bottom = 486.0
+custom_fonts/font = SubResource( 2 )
+text = "level
+total score
+level score
+max score"
+[connection signal="button_down" from="HBoxContainer/MarginContainer/PlayerControls/ButtonBar/TextureButton" to="." method="_on_TextureButton_button_down"]

@@ -1,0 +1,28 @@
+important
+- organize system for scoreboard displaying level & score [essential, programming]
+- title screen [polish, art]
+	- background
+	- credits
+- music [polish, engine]
+	- begin
+	- loop
+	- lose
+
+
+
+
+
+--- ROADMAP
+features
+- marking tiles
+- title screen
+	- background
+	- credits
+- quit to title screen
+- tutorial
+
+polish
+- flipping tile animation
+- sound effects
+	- coin flip
+- scoreboard number increasing animation

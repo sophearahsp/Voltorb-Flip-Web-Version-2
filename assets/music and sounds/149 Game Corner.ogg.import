@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/149 Game Corner.ogg-2fe9a442aa186fe2835814bbc890935d.oggstr"
+
+[deps]
+
+source_file="res://assets/music and sounds/149 Game Corner.ogg"
+dest_files=[ "res://.import/149 Game Corner.ogg-2fe9a442aa186fe2835814bbc890935d.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
