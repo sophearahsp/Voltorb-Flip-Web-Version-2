@@ -16,7 +16,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Voltorb Flip Web Version 2"
-run/main_scene="res://scenes/main.tscn"
+run/main_scene="res://scenes/title_screen.tscn"
 config/icon="res://icon.png"
 
 [display]
