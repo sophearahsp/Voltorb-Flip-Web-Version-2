@@ -53,6 +53,7 @@ margin_right = 791.0
 ] instance=ExtResource( 1 )]
 margin_left = 795.0
 margin_right = 950.0
+_group_name = "red_row"
 
 [node name="21" parent="." groups=[
 "green_row",
@@ -105,6 +106,7 @@ margin_top = 159.0
 margin_right = 950.0
 margin_bottom = 314.0
 texture = ExtResource( 5 )
+_group_name = "green_row"
 
 [node name="31" parent="." groups=[
 "orange_row",
@@ -157,6 +159,7 @@ margin_top = 318.0
 margin_right = 950.0
 margin_bottom = 473.0
 texture = ExtResource( 6 )
+_group_name = "orange_row"
 
 [node name="41" parent="." groups=[
 "blue_row",
@@ -209,6 +212,7 @@ margin_top = 477.0
 margin_right = 950.0
 margin_bottom = 632.0
 texture = ExtResource( 3 )
+_group_name = "blue_row"
 
 [node name="51" parent="." groups=[
 "purple_row",
@@ -261,12 +265,14 @@ margin_top = 636.0
 margin_right = 950.0
 margin_bottom = 791.0
 texture = ExtResource( 4 )
+_group_name = "purple_row"
 
 [node name="C1" parent="." groups=[
 "line_display",
 ] instance=ExtResource( 1 )]
 margin_top = 795.0
 margin_bottom = 950.0
+_group_name = "red_col"
 
 [node name="C2" parent="." groups=[
 "line_display",
@@ -276,6 +282,7 @@ margin_top = 795.0
 margin_right = 314.0
 margin_bottom = 950.0
 texture = ExtResource( 5 )
+_group_name = "green_col"
 
 [node name="C3" parent="." groups=[
 "line_display",
@@ -285,6 +292,7 @@ margin_top = 795.0
 margin_right = 473.0
 margin_bottom = 950.0
 texture = ExtResource( 6 )
+_group_name = "orange_col"
 
 [node name="C4" parent="." groups=[
 "line_display",
@@ -294,6 +302,7 @@ margin_top = 795.0
 margin_right = 632.0
 margin_bottom = 950.0
 texture = ExtResource( 3 )
+_group_name = "blue_col"
 
 [node name="C5" parent="." groups=[
 "line_display",
@@ -303,3 +312,4 @@ margin_top = 795.0
 margin_right = 791.0
 margin_bottom = 950.0
 texture = ExtResource( 4 )
+_group_name = "purple_col"

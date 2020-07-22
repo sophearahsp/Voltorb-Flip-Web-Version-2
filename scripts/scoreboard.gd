@@ -13,10 +13,10 @@ func _ready():
 	get_tree().get_root().get_node("Main").connect("level_cleared",self,"_on_level_cleared")
 
 func _on_level_cleared(max_score):
-	$LevelLabel.set_text("level: "+str(_current_level))
+	_connect_tiles()
 	_max_score = max_score
 	_level_score = 0
-	_connect_tiles()
+	$LevelLabel.set_text("level: "+str(_current_level))
 	display_scores()
 
 # connect tiles to level_score_updated signal
@@ -24,7 +24,6 @@ func _connect_tiles():
 	var tiles = _get_tiles()
 	for i in range(0,tiles.size()):
 		tiles[i].connect("level_score_updated", self, "_on_level_score_updated")
-		
 
 # signal handler for level_score_updated
 func _on_level_score_updated(score):
@@ -33,8 +32,9 @@ func _on_level_score_updated(score):
 	else:
 		_level_score = _level_score * score
 	$ScoreLabel.set_text(str(_total_score + _level_score))
-	# if end level
-	if score == 0:# if lose level
+	
+	# level ends
+	if score == 0:
 		if not _current_level == 1:	
 			_current_level -= 1
 		emit_signal("level_ended", "lose", _current_level)
@@ -57,6 +57,7 @@ func _get_tiles():
 			tiles.append(t)
 	return tiles
 
+# testing purposes
 func display_scores():
 	var label = get_tree().get_root().get_node("Main/HBoxContainer/MarginContainer/PlayerControls/Label")
 	label.set_text("level: "+str(_current_level)+"\n"+"total_score: "+str(_total_score)+"\n"+"level_score: "+str(_level_score)+"\n"+"max_score: "+str(_max_score))
