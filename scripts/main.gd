@@ -2,22 +2,29 @@ extends Control
 
 signal level_cleared
 
+# resources
 const Util = preload("res://scripts/util.gd")
-
 var GameBoard = preload("res://scenes/game_board.tscn")
+const select_cursor = preload("res://assets/1x/SelectCursorx1.png")
+const mark_cursor = preload("res://assets/1x/MarkCursorx1.png")
 
 ### PRIVATE VARIABLES
 # shortcuts
 onready var _scoreboard = get_node("HBoxContainer/MarginContainer/PlayerControls/Scoreboard")
+onready var mark_button = get_node("HBoxContainer/MarginContainer/PlayerControls/ButtonBar/MarkButton")
+onready var select_button = get_node("HBoxContainer/MarginContainer/PlayerControls/ButtonBar/SelectButton")
 
 # script variables
 var _board
+var _is_select_mode = true
 
+### FUNCTIONS
 func _ready():
 	randomize()
 	# connect signals
 	_scoreboard.connect("level_ended",self,"_on_level_ended")
-	
+	# change to custom cursor
+	_change_cursor(select_cursor)
 	# start game
 	_play_level(1)
 	
@@ -82,3 +89,22 @@ func _get_tiles():
 			tiles.append(t)
 	return tiles
 
+# Event handler
+
+func _on_MarkButton_toggled(button_pressed):
+	if button_pressed == true:
+		select_button.pressed = false
+		_change_cursor(mark_cursor)
+	else:
+		select_button.pressed = true
+
+func _on_SelectButton_toggled(button_pressed):
+	if button_pressed == true:
+		mark_button.pressed = false
+		_change_cursor(select_cursor)
+	else:
+		mark_button.pressed = true
+	
+func _change_cursor(cursor_texture):
+	print("curse u!!")
+	Input.set_custom_mouse_cursor(cursor_texture)
