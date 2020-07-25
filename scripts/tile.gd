@@ -31,6 +31,7 @@ func _on_Tile_button_down():
 		elif _tile_value == 3:
 			self.set_normal_texture(load("res://assets/1x/GameBoard/RevealTile3x1.png"))
 		
+		_tile_marks = [false, false, false, false]
 		$Mark0.hide()
 		$Mark1.hide()
 		$Mark2.hide()
