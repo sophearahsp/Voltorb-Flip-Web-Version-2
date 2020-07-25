@@ -1,0 +1,83 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://assets/1x/PlayerControls/MarkingPanelButtons/InactiveMarkVx1.png" type="Texture" id=1]
+[ext_resource path="res://assets/1x/PlayerControls/MarkPanelx1.png" type="Texture" id=2]
+[ext_resource path="res://assets/1x/PlayerControls/MarkingPanelButtons/InactiveMark2x1.png" type="Texture" id=3]
+[ext_resource path="res://assets/1x/PlayerControls/MarkingPanelButtons/InactiveMark3x1.png" type="Texture" id=4]
+[ext_resource path="res://assets/1x/PlayerControls/MarkingPanelButtons/InactiveMark1x1.png" type="Texture" id=5]
+[ext_resource path="res://scenes/marking_panel.gd" type="Script" id=6]
+[ext_resource path="res://assets/1x/PlayerControls/MarkingPanelButtons/ActiveMarkVx1.png" type="Texture" id=7]
+[ext_resource path="res://assets/1x/PlayerControls/MarkingPanelButtons/ActiveMark2x1.png" type="Texture" id=8]
+[ext_resource path="res://assets/1x/PlayerControls/MarkingPanelButtons/ActiveMark1x1.png" type="Texture" id=9]
+[ext_resource path="res://assets/1x/PlayerControls/MarkingPanelButtons/ActiveMark3x1.png" type="Texture" id=10]
+
+[node name="MarkingPanel" type="TextureRect"]
+margin_right = 40.0
+margin_bottom = 40.0
+texture = ExtResource( 2 )
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+margin_right = 305.0
+margin_bottom = 300.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GridContainer" type="GridContainer" parent="CenterContainer"]
+margin_left = 27.0
+margin_top = 25.0
+margin_right = 277.0
+margin_bottom = 275.0
+custom_constants/vseparation = 0
+custom_constants/hseparation = 0
+columns = 2
+
+[node name="Mark0Button" type="TextureButton" parent="CenterContainer/GridContainer"]
+margin_right = 125.0
+margin_bottom = 125.0
+focus_mode = 0
+toggle_mode = true
+pressed = true
+texture_normal = ExtResource( 1 )
+texture_pressed = ExtResource( 7 )
+
+[node name="Mark1Button" type="TextureButton" parent="CenterContainer/GridContainer"]
+margin_left = 125.0
+margin_right = 250.0
+margin_bottom = 125.0
+focus_mode = 0
+toggle_mode = true
+pressed = true
+texture_normal = ExtResource( 5 )
+texture_pressed = ExtResource( 9 )
+
+[node name="Mark2Button" type="TextureButton" parent="CenterContainer/GridContainer"]
+margin_top = 125.0
+margin_right = 125.0
+margin_bottom = 250.0
+focus_mode = 0
+toggle_mode = true
+pressed = true
+texture_normal = ExtResource( 3 )
+texture_pressed = ExtResource( 8 )
+
+[node name="Mark3Button" type="TextureButton" parent="CenterContainer/GridContainer"]
+margin_left = 125.0
+margin_top = 125.0
+margin_right = 250.0
+margin_bottom = 250.0
+focus_mode = 0
+toggle_mode = true
+pressed = true
+texture_normal = ExtResource( 4 )
+texture_pressed = ExtResource( 10 )
+[connection signal="button_down" from="CenterContainer/GridContainer/Mark0Button" to="." method="_on_MarkVButton_button_down"]
+[connection signal="button_down" from="CenterContainer/GridContainer/Mark1Button" to="." method="_on_Mark1Button_button_down"]
+[connection signal="button_down" from="CenterContainer/GridContainer/Mark2Button" to="." method="_on_Mark2Button_button_down"]
+[connection signal="button_down" from="CenterContainer/GridContainer/Mark3Button" to="." method="_on_Mark3Button_button_down"]

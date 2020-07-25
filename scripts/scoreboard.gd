@@ -18,13 +18,14 @@ func _on_level_cleared(max_score):
 	_level_score = 0
 	$LevelLabel.set_text("level: "+str(_current_level))
 	display_scores()
+	get_tree().get_root().get_node("Main/HBoxContainer/CenterContainer/GameBoard/11").grab_focus()
 
-# connect tiles to level_score_updated signal
+# connect tiles
 func _connect_tiles():
 	var tiles = _get_tiles()
 	for i in range(0,tiles.size()):
 		tiles[i].connect("level_score_updated", self, "_on_level_score_updated")
-
+		
 # signal handler for level_score_updated
 func _on_level_score_updated(score):
 	if _level_score == 0:

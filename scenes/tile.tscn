@@ -1,19 +1,80 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://assets/1x/SelectTilex1.png" type="Texture" id=1]
-[ext_resource path="res://assets/1x/BlankTilex1.png" type="Texture" id=2]
+[ext_resource path="res://assets/1x/GameBoard/SelectBorderx1.png" type="Texture" id=1]
+[ext_resource path="res://assets/1x/GameBoard/BlankTilex1.png" type="Texture" id=2]
 [ext_resource path="res://scripts/tile.gd" type="Script" id=3]
+[ext_resource path="res://assets/1x/GameBoard/TileMarking2x1.png" type="Texture" id=4]
+[ext_resource path="res://assets/1x/GameBoard/TileMarking3x1.png" type="Texture" id=5]
+[ext_resource path="res://assets/1x/GameBoard/TileMarkingVx1.png" type="Texture" id=6]
+[ext_resource path="res://assets/1x/GameBoard/TileMarking1x1.png" type="Texture" id=7]
 
 [node name="Tile" type="TextureButton"]
 margin_right = 155.0
 margin_bottom = 155.0
 rect_min_size = Vector2( 155, 155 )
 texture_normal = ExtResource( 2 )
-texture_hover = ExtResource( 1 )
 expand = true
 stretch_mode = 3
 script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Mark0" type="TextureRect" parent="."]
+visible = false
+margin_left = 29.0
+margin_top = 29.0
+margin_right = 59.0
+margin_bottom = 59.0
+texture = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Mark1" type="TextureRect" parent="."]
+visible = false
+margin_left = 96.0
+margin_top = 30.0
+margin_right = 130.0
+margin_bottom = 64.0
+rect_pivot_offset = Vector2( 33.7997, 30 )
+texture = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Mark2" type="TextureRect" parent="."]
+visible = false
+margin_left = 27.0
+margin_top = 98.0
+margin_right = 63.0
+margin_bottom = 132.0
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Mark3" type="TextureRect" parent="."]
+visible = false
+margin_left = 96.0
+margin_top = 97.0
+margin_right = 132.0
+margin_bottom = 131.0
+rect_pivot_offset = Vector2( 33.7997, 30 )
+texture = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Border" type="TextureRect" parent="."]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="button_down" from="." to="." method="_on_Tile_button_down"]
+[connection signal="focus_entered" from="." to="." method="_on_Tile_focus_entered"]
+[connection signal="focus_exited" from="." to="." method="_on_Tile_focus_exited"]
+[connection signal="mouse_entered" from="." to="." method="_on_Tile_mouse_entered"]

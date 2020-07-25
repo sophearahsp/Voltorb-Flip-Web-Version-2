@@ -2,10 +2,10 @@
 
 [ext_resource path="res://scenes/display_tile.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/tile.tscn" type="PackedScene" id=2]
-[ext_resource path="res://assets/1x/BEndx1.png" type="Texture" id=3]
-[ext_resource path="res://assets/1x/PEndx1.png" type="Texture" id=4]
-[ext_resource path="res://assets/1x/GEndx1.png" type="Texture" id=5]
-[ext_resource path="res://assets/1x/OEndx1.png" type="Texture" id=6]
+[ext_resource path="res://assets/1x/GameBoard/BEndx1.png" type="Texture" id=3]
+[ext_resource path="res://assets/1x/GameBoard/PEndx1.png" type="Texture" id=4]
+[ext_resource path="res://assets/1x/GameBoard/GEndx1.png" type="Texture" id=5]
+[ext_resource path="res://assets/1x/GameBoard/OEndx1.png" type="Texture" id=6]
 
 [node name="GameBoard" type="GridContainer"]
 margin_right = 950.0

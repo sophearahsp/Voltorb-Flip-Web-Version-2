@@ -1,16 +1,24 @@
 [gd_scene load_steps=12 format=2]
 
-[ext_resource path="res://assets/1x/GameBackgroundx1.png" type="Texture" id=1]
-[ext_resource path="res://assets/1x/BTubeHx1.png" type="Texture" id=3]
-[ext_resource path="res://assets/1x/OTubeHx1.png" type="Texture" id=4]
-[ext_resource path="res://assets/1x/PTubeVx1.png" type="Texture" id=5]
-[ext_resource path="res://assets/1x/GTubeVx1.png" type="Texture" id=6]
-[ext_resource path="res://assets/1x/VTubeVx1.png" type="Texture" id=7]
-[ext_resource path="res://assets/1x/GTubeHx1.png" type="Texture" id=8]
-[ext_resource path="res://assets/1x/PTubeHx1.png" type="Texture" id=9]
-[ext_resource path="res://assets/1x/RTubeHx1.png" type="Texture" id=10]
-[ext_resource path="res://assets/1x/RTubeVx1.png" type="Texture" id=11]
-[ext_resource path="res://assets/1x/OTubeVx1.png" type="Texture" id=12]
+[ext_resource path="res://assets/1x/Background/GameBackgroundx1.png" type="Texture" id=1]
+[ext_resource path="res://assets/1x/Background/BTubeHx1.png" type="Texture" id=3]
+[ext_resource path="res://assets/1x/Background/OTubeHx1.png" type="Texture" id=4]
+[ext_resource path="res://assets/1x/Background/PTubeVx1.png" type="Texture" id=5]
+[ext_resource path="res://assets/1x/Background/GTubeVx1.png" type="Texture" id=6]
+[ext_resource path="res://assets/1x/Background/BTubeVx1.png" type="Texture" id=7]
+[ext_resource path="res://assets/1x/Background/GTubeHx1.png" type="Texture" id=8]
+[ext_resource path="res://assets/1x/Background/PTubeHx1.png" type="Texture" id=9]
+[ext_resource path="res://assets/1x/Background/RTubeHx1.png" type="Texture" id=10]
+[ext_resource path="res://assets/1x/Background/RTubeVx1.png" type="Texture" id=11]
+[ext_resource path="res://assets/1x/Background/OTubeVx1.png" type="Texture" id=12]
+
+
+
+
+
+
+
+
 
 [node name="Background" type="TextureRect"]
 margin_right = 1280.0

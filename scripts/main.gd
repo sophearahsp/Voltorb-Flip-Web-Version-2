@@ -1,16 +1,18 @@
 extends Control
 
 signal level_cleared
+signal mode_changed
 
 # resources
 const Util = preload("res://scripts/util.gd")
 var GameBoard = preload("res://scenes/game_board.tscn")
-const select_cursor = preload("res://assets/1x/SelectCursorx1.png")
-const mark_cursor = preload("res://assets/1x/MarkCursorx1.png")
+const select_cursor = preload("res://assets/1x/PlayerControls/SelectCursorx1.png")
+const mark_cursor = preload("res://assets/1x/PlayerControls/MarkCursorx1.png")
 
 ### PRIVATE VARIABLES
 # shortcuts
 onready var _scoreboard = get_node("HBoxContainer/MarginContainer/PlayerControls/Scoreboard")
+onready var _marking_panel = get_node("HBoxContainer/MarginContainer/PlayerControls/CenterContainer/MarkingPanel")
 onready var mark_button = get_node("HBoxContainer/MarginContainer/PlayerControls/ButtonBar/MarkButton")
 onready var select_button = get_node("HBoxContainer/MarginContainer/PlayerControls/ButtonBar/SelectButton")
 
@@ -90,21 +92,27 @@ func _get_tiles():
 	return tiles
 
 # Event handler
-
 func _on_MarkButton_toggled(button_pressed):
 	if button_pressed == true:
+		emit_signal("mode_changed",false)
+		_is_select_mode = false
 		select_button.pressed = false
 		_change_cursor(mark_cursor)
+		_marking_panel.show()
 	else:
 		select_button.pressed = true
+		_marking_panel.hide()
 
 func _on_SelectButton_toggled(button_pressed):
 	if button_pressed == true:
+		emit_signal("mode_changed",true)
+		_is_select_mode = true
 		mark_button.pressed = false
 		_change_cursor(select_cursor)
+		_marking_panel.hide()
 	else:
 		mark_button.pressed = true
-	
+		_marking_panel.show()
+
 func _change_cursor(cursor_texture):
-	print("curse u!!")
 	Input.set_custom_mouse_cursor(cursor_texture)
