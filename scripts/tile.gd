@@ -30,6 +30,12 @@ func _on_Tile_button_down():
 			self.set_normal_texture(load("res://assets/1x/GameBoard/RevealTile2x1.png"))
 		elif _tile_value == 3:
 			self.set_normal_texture(load("res://assets/1x/GameBoard/RevealTile3x1.png"))
+		
+		$Mark0.hide()
+		$Mark1.hide()
+		$Mark2.hide()
+		$Mark3.hide()
+		
 	
 func _on_mode_changed(mode):
 	_mode = mode
