@@ -46,17 +46,26 @@ func _mark_button_toggle(button):
 				_tile.get_node("Mark"+str(button)).hide()
 
 func _on_MarkVButton_button_down():
+	if _tile != null:
+		if _tile._revealed == true:
+			$CenterContainer/GridContainer/Mark0Button.pressed = true
 	_mark_button_toggle(0)
 
-
 func _on_Mark1Button_button_down():
+	if _tile != null:
+		if _tile._revealed == true:
+			$CenterContainer/GridContainer/Mark1Button.pressed = true
 	_mark_button_toggle(1)
 
-
 func _on_Mark2Button_button_down():
+	if _tile != null:
+		if _tile._revealed == true:
+			$CenterContainer/GridContainer/Mark2Button.pressed = true
 	_mark_button_toggle(2)
 
-
 func _on_Mark3Button_button_down():
+	if _tile != null:
+		if _tile._revealed == true:
+			$CenterContainer/GridContainer/Mark3Button.pressed = true
 	_mark_button_toggle(3)
 
