@@ -9,12 +9,17 @@ var GameBoard = preload("res://scenes/game_board.tscn")
 const select_cursor = preload("res://assets/1x/PlayerControls/SelectCursorx1.png")
 const mark_cursor = preload("res://assets/1x/PlayerControls/MarkCursorx1.png")
 
+const select_hover = preload("res://assets/1x/PlayerControls/ToggleSelectHoverx1.png")
+const select_pressed = preload("res://assets/1x/PlayerControls/ToggleSelectPressedx1.png")
+const mark_hover = preload("res://assets/1x/PlayerControls/ToggleMarkHoverx1.png")
+const mark_pressed = preload("res://assets/1x/PlayerControls/ToggleMarkPressedx1.png")
+
+
 ### PRIVATE VARIABLES
 # shortcuts
 onready var _scoreboard = get_node("HBoxContainer/MarginContainer/PlayerControls/Scoreboard")
 onready var _marking_panel = get_node("HBoxContainer/MarginContainer/PlayerControls/CenterContainer/MarkingPanel")
-onready var mark_button = get_node("HBoxContainer/MarginContainer/PlayerControls/ButtonBar/MarkButton")
-onready var select_button = get_node("HBoxContainer/MarginContainer/PlayerControls/ButtonBar/SelectButton")
+onready var toggle_button = get_node("HBoxContainer/MarginContainer/PlayerControls/ToggleButton")
 
 # script variables
 var _board
@@ -91,28 +96,22 @@ func _get_tiles():
 			tiles.append(t)
 	return tiles
 
-# Event handler
-func _on_MarkButton_toggled(button_pressed):
-	if button_pressed == true:
-		emit_signal("mode_changed",false)
-		_is_select_mode = false
-		select_button.pressed = false
-		_change_cursor(mark_cursor)
-		_marking_panel.show()
-	else:
-		select_button.pressed = true
-		_marking_panel.hide()
-
-func _on_SelectButton_toggled(button_pressed):
-	if button_pressed == true:
-		emit_signal("mode_changed",true)
-		_is_select_mode = true
-		mark_button.pressed = false
-		_change_cursor(select_cursor)
-		_marking_panel.hide()
-	else:
-		mark_button.pressed = true
-		_marking_panel.show()
-
 func _change_cursor(cursor_texture):
 	Input.set_custom_mouse_cursor(cursor_texture)
+
+func _on_ToggleButton_button_down():
+	if _is_select_mode: # change to mark mode
+		emit_signal("mode_changed",false)
+		_is_select_mode = false
+		_change_cursor(mark_cursor)
+		_marking_panel.show()
+		
+		toggle_button.set_normal_texture(mark_hover)
+		toggle_button.set_pressed_texture(mark_pressed)
+	else: # change to select mode
+		emit_signal("mode_changed",true)
+		_is_select_mode = true
+		_change_cursor(select_cursor)
+		_marking_panel.hide()
+		toggle_button.set_normal_texture(select_hover)
+		toggle_button.set_pressed_texture(select_pressed)
