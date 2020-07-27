@@ -27,6 +27,7 @@ var _is_select_mode = true
 
 ### FUNCTIONS
 func _ready():
+	set_process_input(true)
 	randomize()
 	# connect signals
 	_scoreboard.connect("level_ended",self,"_on_level_ended")
@@ -100,6 +101,13 @@ func _change_cursor(cursor_texture):
 	Input.set_custom_mouse_cursor(cursor_texture)
 
 func _on_ToggleButton_button_down():
+	toggle_mode()
+
+func _process(delta):
+	if Input.is_action_just_pressed("toggle_mode"):
+		toggle_mode()
+
+func toggle_mode():
 	if _is_select_mode: # change to mark mode
 		emit_signal("mode_changed",false)
 		_is_select_mode = false

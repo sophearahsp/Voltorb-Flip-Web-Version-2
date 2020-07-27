@@ -58,7 +58,7 @@ func _get_tiles():
 			tiles.append(t)
 	return tiles
 
-# testing purposes
+# TESTING PURPOSES ONLY
 func display_scores():
 	var label = get_tree().get_root().get_node("Main/HBoxContainer/MarginContainer/PlayerControls/Label")
 	label.set_text("level: "+str(_current_level)+"\n"+"total_score: "+str(_total_score)+"\n"+"level_score: "+str(_level_score)+"\n"+"max_score: "+str(_max_score))
