@@ -54,22 +54,13 @@ func _on_Mark2Button_button_down():
 
 func _on_Mark3Button_button_down():
 	_toggle_mark3()
-
-func _process(delta):
-	if Input.is_action_just_pressed("toggle_mark0"):
-		_toggle_mark0()
-	elif Input.is_action_just_pressed("toggle_mark1"):
-		_toggle_mark1()
-	elif Input.is_action_just_pressed("toggle_mark2"):
-		_toggle_mark2()	
-	elif Input.is_action_just_pressed("toggle_mark3"):
-		_toggle_mark3()	
 		
 func _toggle_mark0():
 	if _tile != null:
 		if _tile._revealed == true:
 			$CenterContainer/GridContainer/Mark0Button.pressed = true
 		else:
+			$CenterContainer/GridContainer/Mark0Button.pressed = false
 			_mark_button_toggle(0)
 
 func _toggle_mark1():
@@ -77,6 +68,8 @@ func _toggle_mark1():
 		if _tile._revealed == true:
 			$CenterContainer/GridContainer/Mark1Button.pressed = true
 		else:
+			
+			$CenterContainer/GridContainer/Mark0Button.pressed = false
 			_mark_button_toggle(1)
 
 func _toggle_mark2():
@@ -84,6 +77,8 @@ func _toggle_mark2():
 		if _tile._revealed == true:
 			$CenterContainer/GridContainer/Mark2Button.pressed = true
 		else:
+			
+			$CenterContainer/GridContainer/Mark0Button.pressed = false
 			_mark_button_toggle(2)
 
 func _toggle_mark3():
@@ -91,4 +86,6 @@ func _toggle_mark3():
 		if _tile._revealed == true:
 			$CenterContainer/GridContainer/Mark3Button.pressed = true
 		else:
+			
+			$CenterContainer/GridContainer/Mark0Button.pressed = false
 			_mark_button_toggle(3)
