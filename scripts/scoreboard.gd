@@ -32,7 +32,8 @@ func _on_level_score_updated(score):
 		_level_score = score
 	else:
 		_level_score = _level_score * score
-	$ScoreLabel.set_text(str(_total_score + _level_score))
+	#$ScoreLabel.set_text(str(_total_score + _level_score))
+	change_score(_total_score + _level_score)
 	
 	# level ends
 	if score == 0:
@@ -63,3 +64,17 @@ func display_scores():
 	var label = get_tree().get_root().get_node("Main/HBoxContainer/MarginContainer/PlayerControls/Label")
 	label.set_text("level: "+str(_current_level)+"\n"+"total_score: "+str(_total_score)+"\n"+"level_score: "+str(_level_score)+"\n"+"max_score: "+str(_max_score))
 	
+func change_score(number):
+	# increasing
+	var start = int($ScoreLabel.text)
+	var current = 0
+	if int($ScoreLabel.text) < number:
+		while int($ScoreLabel.text) < number:
+			current = current + 1
+			$ScoreLabel.set_text(str(start + current))
+			yield(get_tree().create_timer(0.01), "timeout")
+	elif int($ScoreLabel.text) > number:
+		while int($ScoreLabel.text) > number:
+			current = current - 1
+			$ScoreLabel.set_text(str(start + current))
+			yield(get_tree().create_timer(0.01), "timeout")

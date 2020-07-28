@@ -69,7 +69,7 @@ func _toggle_mark1():
 			$CenterContainer/GridContainer/Mark1Button.pressed = true
 		else:
 			
-			$CenterContainer/GridContainer/Mark0Button.pressed = false
+			$CenterContainer/GridContainer/Mark1Button.pressed = false
 			_mark_button_toggle(1)
 
 func _toggle_mark2():
@@ -78,7 +78,7 @@ func _toggle_mark2():
 			$CenterContainer/GridContainer/Mark2Button.pressed = true
 		else:
 			
-			$CenterContainer/GridContainer/Mark0Button.pressed = false
+			$CenterContainer/GridContainer/Mark2Button.pressed = false
 			_mark_button_toggle(2)
 
 func _toggle_mark3():
@@ -87,5 +87,9 @@ func _toggle_mark3():
 			$CenterContainer/GridContainer/Mark3Button.pressed = true
 		else:
 			
-			$CenterContainer/GridContainer/Mark0Button.pressed = false
+			$CenterContainer/GridContainer/Mark3Button.pressed = false
 			_mark_button_toggle(3)
+
+
+func _on_TestButton_button_down():
+	pass # Replace with function body.
