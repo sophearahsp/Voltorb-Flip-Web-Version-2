@@ -124,6 +124,3 @@ func toggle_mode():
 		toggle_button.set_normal_texture(select_hover)
 		toggle_button.set_pressed_texture(select_pressed)
 
-
-func _on_TestButton_button_down():
-	pass # Replace with function body.
