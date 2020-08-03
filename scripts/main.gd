@@ -54,9 +54,9 @@ func _on_level_ended(result, next_level):
 	# results
 	if result == "win":
 		print("you won the level")
-		end_level_anim("WON LEVEL "+str(next_level-1))
+		end_level_anim("WON LEVEL "+str(next_level))
 	else:
-		end_level_anim("LOST LEVEL "+str(next_level-1))
+		end_level_anim("LOST LEVEL "+str(next_level))
 		print("you lost the level")
 	
 	# next level
