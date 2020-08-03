@@ -67,6 +67,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id=7]
 resource_name = "panel_in"
+length = 0.2
 tracks/0/type = "value"
 tracks/0/path = NodePath("HBoxContainer/MarginContainer/PlayerControls/CenterContainer/MarkingPanel:rect_position")
 tracks/0/interp = 1
@@ -82,6 +83,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id=8]
 resource_name = "panel_out"
+length = 0.2
 tracks/0/type = "value"
 tracks/0/path = NodePath("HBoxContainer/MarginContainer/PlayerControls/CenterContainer/MarkingPanel:rect_position")
 tracks/0/interp = 1

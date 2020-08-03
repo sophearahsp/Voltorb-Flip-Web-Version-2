@@ -112,23 +112,24 @@ func _process(delta):
 		toggle_mode()
 
 func toggle_mode():
-	if _is_select_mode: # change to mark mode
-		emit_signal("mode_changed",false)
-		_is_select_mode = false
-		_change_cursor(mark_cursor)
-		_marking_panel.show()
-		
-		toggle_button.set_normal_texture(mark_hover)
-		toggle_button.set_pressed_texture(mark_pressed)
-		
-		panel_in()
-	else: # change to select mode
-		emit_signal("mode_changed",true)
-		_is_select_mode = true
-		_change_cursor(select_cursor)
-		toggle_button.set_normal_texture(select_hover)
-		toggle_button.set_pressed_texture(select_pressed)
-		panel_out()
+	if anim.is_playing() == false:
+		if _is_select_mode: # change to mark mode
+			_marking_panel.show()
+			emit_signal("mode_changed",false)
+			_is_select_mode = false
+			_change_cursor(mark_cursor)
+			
+			toggle_button.set_normal_texture(mark_hover)
+			toggle_button.set_pressed_texture(mark_pressed)
+			
+			panel_in()
+		else: # change to select mode
+			emit_signal("mode_changed",true)
+			_is_select_mode = true
+			_change_cursor(select_cursor)
+			toggle_button.set_normal_texture(select_hover)
+			toggle_button.set_pressed_texture(select_pressed)
+			panel_out()
 
 func end_level_anim(contents):
 	$ColorBackground.show()
