@@ -20,6 +20,11 @@ const mark_pressed = preload("res://assets/1x/PlayerControls/ToggleMarkPressedx1
 onready var _scoreboard = get_node("HBoxContainer/MarginContainer/PlayerControls/Scoreboard")
 onready var _marking_panel = get_node("HBoxContainer/MarginContainer/PlayerControls/CenterContainer/MarkingPanel")
 onready var toggle_button = get_node("HBoxContainer/MarginContainer/PlayerControls/ToggleButton")
+onready var color_background = get_node("ColorBackground")
+onready var anim = get_node("AnimationPlayer")
+onready var lvl_end_bg = get_node("LevelEndBackground")
+onready var lvl_end_label = get_node("LevelEndBackground/LevelEndLabel")
+
 
 # script variables
 var _board
@@ -49,7 +54,9 @@ func _on_level_ended(result, next_level):
 	# results
 	if result == "win":
 		print("you won the level")
+		end_level_anim("WON LEVEL "+str(next_level-1))
 	else:
+		end_level_anim("LOST LEVEL "+str(next_level-1))
 		print("you lost the level")
 	
 	# next level
@@ -116,6 +123,7 @@ func toggle_mode():
 		
 		toggle_button.set_normal_texture(mark_hover)
 		toggle_button.set_pressed_texture(mark_pressed)
+		
 	else: # change to select mode
 		emit_signal("mode_changed",true)
 		_is_select_mode = true
@@ -124,3 +132,13 @@ func toggle_mode():
 		toggle_button.set_normal_texture(select_hover)
 		toggle_button.set_pressed_texture(select_pressed)
 
+func end_level_anim(contents):
+	$ColorBackground.show()
+	anim.play("intro")
+	lvl_end_label.set_text(contents)
+	
+	yield(get_tree().create_timer(.8), "timeout")
+	
+	anim.play("outro")
+	yield(anim, "animation_finished")
+	$ColorBackground.hide()
