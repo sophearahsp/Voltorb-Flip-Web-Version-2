@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://scenes/background.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/1x/PlayerControls/EndLevelx1.png" type="Texture" id=2]
@@ -7,76 +7,6 @@
 [ext_resource path="res://scenes/marking_panel.tscn" type="PackedScene" id=8]
 [ext_resource path="res://assets/1x/PlayerControls/ToggleSelectPressedx1.png" type="Texture" id=9]
 [ext_resource path="res://assets/1x/PlayerControls/ToggleSelectHoverx1.png" type="Texture" id=10]
-
-[sub_resource type="Animation" id=8]
-resource_name = "anim_in"
-tracks/0/type = "value"
-tracks/0/path = NodePath("LevelEndBackground:rect_position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( -1296, 358 ), Vector2( -15.0001, 358 ) ]
-}
-
-[sub_resource type="Animation" id=9]
-resource_name = "anim_out"
-tracks/0/type = "value"
-tracks/0/path = NodePath("LevelEndBackground:rect_position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( -15.0001, 358 ), Vector2( 1272, 358 ) ]
-}
-
-[sub_resource type="Animation" id=7]
-resource_name = "expand"
-length = 0.2
-tracks/0/type = "value"
-tracks/0/path = NodePath("LevelEndBackground:rect_position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( -16, 160 ), Vector2( -15, 40 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("LevelEndBackground:rect_size")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( 1310, 0 ), Vector2( 1310, 244 ) ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("LevelEndBackground/LevelEndLabel:custom_fonts/font:size")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ 1, 70 ]
-}
 
 [sub_resource type="Animation" id=1]
 resource_name = "intro"
@@ -135,6 +65,36 @@ tracks/1/keys = {
 "values": [ Vector2( -16, 358 ), Vector2( 1272, 358 ) ]
 }
 
+[sub_resource type="Animation" id=7]
+resource_name = "panel_in"
+tracks/0/type = "value"
+tracks/0/path = NodePath("HBoxContainer/MarginContainer/PlayerControls/CenterContainer/MarkingPanel:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 330, 0 ), Vector2( 15, 0 ) ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "panel_out"
+tracks/0/type = "value"
+tracks/0/path = NodePath("HBoxContainer/MarginContainer/PlayerControls/CenterContainer/MarkingPanel:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 15, 0 ), Vector2( 330, 0 ) ]
+}
+
 [sub_resource type="DynamicFontData" id=2]
 font_path = "res://assets/fonts/FFFFORWA.TTF"
 
@@ -158,11 +118,10 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/anim_in = SubResource( 8 )
-anims/anim_out = SubResource( 9 )
-anims/expand = SubResource( 7 )
 anims/intro = SubResource( 1 )
 anims/outro = SubResource( 6 )
+anims/panel_in = SubResource( 7 )
+anims/panel_out = SubResource( 8 )
 
 [node name="Background" parent="." instance=ExtResource( 1 )]
 
@@ -178,7 +137,7 @@ margin_bottom = 960.0
 
 [node name="MarginContainer" type="MarginContainer" parent="HBoxContainer"]
 margin_left = 4.0
-margin_right = 340.0
+margin_right = 1290.0
 margin_bottom = 960.0
 rect_min_size = Vector2( 326, 960 )
 size_flags_horizontal = 3
@@ -186,16 +145,16 @@ custom_constants/margin_top = 19
 
 [node name="PlayerControls" type="VBoxContainer" parent="HBoxContainer/MarginContainer"]
 margin_top = 19.0
-margin_right = 336.0
+margin_right = 1286.0
 margin_bottom = 960.0
 rect_min_size = Vector2( 326, 941 )
 
 [node name="Scoreboard" parent="HBoxContainer/MarginContainer/PlayerControls" instance=ExtResource( 5 )]
-margin_right = 336.0
+margin_right = 1286.0
 
 [node name="ToggleButton" type="TextureButton" parent="HBoxContainer/MarginContainer/PlayerControls"]
 margin_top = 174.0
-margin_right = 336.0
+margin_right = 1286.0
 margin_bottom = 339.0
 rect_min_size = Vector2( 336, 165 )
 focus_mode = 0
@@ -207,20 +166,21 @@ stretch_mode = 3
 
 [node name="CenterContainer" type="CenterContainer" parent="HBoxContainer/MarginContainer/PlayerControls"]
 margin_top = 343.0
-margin_right = 336.0
+margin_right = 1286.0
 margin_bottom = 343.0
 
 [node name="MarkingPanel" parent="HBoxContainer/MarginContainer/PlayerControls/CenterContainer" instance=ExtResource( 8 )]
 visible = false
-margin_left = 15.0
+margin_left = 490.0
 margin_top = -150.0
-margin_right = 320.0
+margin_right = 795.0
 margin_bottom = 150.0
 
 [node name="Label" type="Label" parent="HBoxContainer/MarginContainer/PlayerControls"]
-margin_top = 347.0
-margin_right = 336.0
-margin_bottom = 500.0
+visible = false
+margin_top = 647.0
+margin_right = 1286.0
+margin_bottom = 800.0
 custom_fonts/font = SubResource( 3 )
 text = "level
 total score
@@ -242,9 +202,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = 632.0
+margin_left = -1936.0
 margin_top = -122.0
-margin_right = 1942.0
+margin_right = -626.0
 margin_bottom = 122.0
 texture = ExtResource( 2 )
 expand = true

@@ -53,14 +53,11 @@ func _play_level(level):
 func _on_level_ended(result, next_level):
 	# results
 	if result == "win":
-		print("you won the level")
 		end_level_anim("WON LEVEL "+str(next_level))
 	else:
 		end_level_anim("LOST LEVEL "+str(next_level))
-		print("you lost the level")
 	
 	# next level
-	print("next play level "+str(next_level))
 	_board.queue_free()
 	yield(get_tree().create_timer(0.01), "timeout")
 	_play_level(next_level)
@@ -124,13 +121,14 @@ func toggle_mode():
 		toggle_button.set_normal_texture(mark_hover)
 		toggle_button.set_pressed_texture(mark_pressed)
 		
+		panel_in()
 	else: # change to select mode
 		emit_signal("mode_changed",true)
 		_is_select_mode = true
 		_change_cursor(select_cursor)
-		_marking_panel.hide()
 		toggle_button.set_normal_texture(select_hover)
 		toggle_button.set_pressed_texture(select_pressed)
+		panel_out()
 
 func end_level_anim(contents):
 	$ColorBackground.show()
@@ -142,3 +140,11 @@ func end_level_anim(contents):
 	anim.play("outro")
 	yield(anim, "animation_finished")
 	$ColorBackground.hide()
+
+func panel_in():
+	anim.play("panel_in")
+
+func panel_out():
+	anim.play("panel_out")
+	yield(anim, "animation_finished")
+	_marking_panel.hide()
